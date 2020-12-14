@@ -13,6 +13,17 @@ def encrypt(plain_text,shift_amount):
     new_letter = alphabet[new_position]
     chipher_text += new_letter
   print(f"The encoded text is {chipher_text}")
+
+def decode(plain_text,shift_amount):
+  chipher_text = ""
+  for letter in plain_text:
+    position = alphabet.index(letter)
+    new_position = position - shift_amount
+    new_letter = alphabet[new_position]
+    chipher_text += new_letter
+  print(f"The decoded text is {chipher_text}")
+
+
     #TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.  
     #e.g. 
     #plain_text = "hello"
@@ -26,4 +37,7 @@ def encrypt(plain_text,shift_amount):
     ##🐛Bug alert: What happens if you try to encode the word 'civilization'?🐛
 
 #TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
-encrypt(plain_text = text, shift_amount = shift)
+if direction == "encode":
+  encrypt(plain_text = text, shift_amount = shift)
+elif direction == "decode":
+  decode(plain_text = text, shift_amount = shift)
